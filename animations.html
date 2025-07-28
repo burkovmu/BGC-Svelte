@@ -49,18 +49,11 @@
             will-change: opacity; /* Оптимизация для анимаций */
             transform: translateZ(0); /* Аппаратное ускорение */
             backface-visibility: hidden; /* Улучшение производительности */
-            image-rendering: -webkit-optimize-contrast; /* Высокое качество на WebKit */
-            image-rendering: crisp-edges; /* Четкие края */
-            image-rendering: pixelated; /* Пиксельное качество */
         }
         
-        /* Принудительное высокое качество изображений */
+        /* Простая оптимизация качества изображений */
         img {
-            image-rendering: -webkit-optimize-contrast !important;
-            image-rendering: crisp-edges !important;
-            image-rendering: pixelated !important;
-            -webkit-font-smoothing: antialiased !important;
-            -moz-osx-font-smoothing: grayscale !important;
+            image-rendering: -webkit-optimize-contrast;
         }
         .anim.visible {
             opacity: 1;
