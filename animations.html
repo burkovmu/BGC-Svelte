@@ -86,16 +86,28 @@
         /* Мобильная версия - увеличенный контейнер */
         @media (max-width: 768px) {
             .main-container {
-                width: 100% !important; /* Возвращаем к 100% */
-                max-width: 100% !important; /* Ограничиваем ширину */
+                width: 100vw !important; /* Фиксированная ширина экрана */
+                max-width: 100vw !important; /* Ограничиваем ширину экрана */
                 transform: scale(2.5) !important; /* Дополнительное увеличение */
                 margin-top: 150% !important; /* Опускаем блок ниже */
                 overflow: hidden !important; /* Скрываем выходящие за границы элементы */
+                position: fixed !important; /* Фиксированная позиция */
+                left: 0 !important; /* Прижимаем к левому краю */
+                right: 0 !important; /* Прижимаем к правому краю */
             }
             
             /* Скрываем горизонтальную прокрутку */
             body {
                 overflow-x: hidden !important;
+                overflow-y: hidden !important; /* Скрываем вертикальную прокрутку */
+                width: 100vw !important; /* Фиксированная ширина */
+                max-width: 100vw !important;
+            }
+            
+            /* Видео фон тоже фиксируем */
+            .background-video {
+                width: 100vw !important;
+                max-width: 100vw !important;
             }
         }
     </style>
