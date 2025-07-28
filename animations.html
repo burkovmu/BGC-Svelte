@@ -49,6 +49,18 @@
             will-change: opacity; /* Оптимизация для анимаций */
             transform: translateZ(0); /* Аппаратное ускорение */
             backface-visibility: hidden; /* Улучшение производительности */
+            image-rendering: -webkit-optimize-contrast; /* Высокое качество на WebKit */
+            image-rendering: crisp-edges; /* Четкие края */
+            image-rendering: pixelated; /* Пиксельное качество */
+        }
+        
+        /* Принудительное высокое качество изображений */
+        img {
+            image-rendering: -webkit-optimize-contrast !important;
+            image-rendering: crisp-edges !important;
+            image-rendering: pixelated !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
         }
         .anim.visible {
             opacity: 1;
@@ -141,12 +153,12 @@
     <!-- Контейнер для всех элементов -->
     <div class="main-container">
         <!-- Логотип над анимациями -->
-        <img src="all-bgc/logo.webp" class="top-video" alt="Logo">
+        <img src="all-bgc/logo.webp" class="top-video" alt="Logo" loading="eager" decoding="sync">
         
-        <img src="1/BIRD.webp" class="anim" id="anim1" alt="BIRD">
-        <img src="1/BGC.webp" class="anim" id="anim2" alt="BGC">
-        <img src="1/ABOUT.webp" class="anim" id="anim3" alt="ABOUT">
-        <img src="1/CONTACT.webp" class="anim" id="anim4" alt="CONTACT">
+        <img src="1/BIRD.webp" class="anim" id="anim1" alt="BIRD" loading="eager" decoding="sync">
+        <img src="1/BGC.webp" class="anim" id="anim2" alt="BGC" loading="eager" decoding="sync">
+        <img src="1/ABOUT.webp" class="anim" id="anim3" alt="ABOUT" loading="eager" decoding="sync">
+        <img src="1/CONTACT.webp" class="anim" id="anim4" alt="CONTACT" loading="eager" decoding="sync">
     </div>
     
     
