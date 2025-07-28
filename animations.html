@@ -82,6 +82,15 @@
             width: 100%;
             height: 100vh;
         }
+        
+        /* Мобильная версия - увеличенный контейнер */
+        @media (max-width: 768px) {
+            .main-container {
+                width: 120% !important; /* Увеличиваем контейнер на мобильных */
+                max-width: 120% !important;
+                transform: scale(1.2) !important; /* Дополнительное увеличение */
+            }
+        }
     </style>
 </head>
 <body>
