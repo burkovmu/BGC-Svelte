@@ -103,7 +103,8 @@
                 right: 0 !important; /* Прижимаем к правому краю */
                 will-change: transform; /* Оптимизация для трансформаций */
                 height: calc(100vh - 120px) !important; /* Высота минус мобильный отступ */
-                top: 120px !important; /* Позиция под отступом */
+                top: 120px !important; /* Позиция под отступом - приклеен к верху */
+                transform-origin: top center !important; /* Точка трансформации сверху */
             }
             
             /* Оптимизация анимаций для мобильных */
