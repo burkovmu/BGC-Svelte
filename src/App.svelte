@@ -143,9 +143,6 @@
       z-index: 9999;
       cursor: pointer;
       margin-top: 2%;
-      will-change: opacity;
-      transform: translateZ(0);
-      backface-visibility: hidden;
     }
     
     /* Анимации */
@@ -156,9 +153,6 @@
       display: block;
       position: relative;
       z-index: 1;
-      will-change: opacity;
-      transform: translateZ(0);
-      backface-visibility: hidden;
     }
     
     .anim.visible {
@@ -197,42 +191,46 @@
       margin-top: 0;
     }
     
-    /* Мобильная версия */
+    /* Мобильная версия - упрощенная */
     @media (max-width: 768px) {
       body {
-        padding-top: 120px !important;
+        padding-top: 60px !important;
       }
       
       .main-container {
-        width: 100vw !important;
-        max-width: 100vw !important;
-        transform: scale(3) !important;
+        width: 100% !important;
+        max-width: 100% !important;
         margin-top: 0 !important;
-        overflow: hidden !important;
-        position: fixed !important;
-        left: 0 !important;
-        right: 0 !important;
-        will-change: transform;
-        height: calc(100vh - 120px) !important;
-        top: 120px !important;
-        transform-origin: top center !important;
+        height: calc(100vh - 60px) !important;
       }
       
-      .anim {
-        will-change: opacity !important;
-        transform: translateZ(0) !important;
+      .top-video {
+        max-width: 60% !important;
+        margin-top: 5% !important;
+      }
+      
+      #anim1 {
+        max-width: 50% !important;
+        margin-top: 2% !important;
+      }
+      
+      #anim2 {
+        max-width: 55% !important;
+        margin-top: 2% !important;
+      }
+      
+      #anim3 {
+        max-width: 40% !important;
+        margin-top: 2% !important;
+      }
+      
+      #anim4 {
+        max-width: 40% !important;
+        margin-top: 2% !important;
       }
       
       body {
         overflow-x: hidden !important;
-        overflow-y: hidden !important;
-        width: 100vw !important;
-        max-width: 100vw !important;
-      }
-      
-      .background-video {
-        width: 100vw !important;
-        max-width: 100vw !important;
       }
     }
   </style>
