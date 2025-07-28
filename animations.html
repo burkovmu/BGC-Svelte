@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анимации из папки 1</title>
+    <style>
+        body {
+            background: #181818;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Видео фон */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 1.0;
+        }
+        
+        /* Логотип - фиксированный процент от экрана */
+        .top-video {
+            max-width: 40%; /* 40% от ширины экрана */
+            position: relative;
+            z-index: 9999; /* Максимальный z-index - выше всех элементов */
+            cursor: pointer; /* Курсор-рука при наведении */
+            margin-top: 2%; /* 2% от высоты экрана */
+        }
+        
+        .anim {
+            opacity: 0;
+            transition: opacity 1s ease;
+            background: none;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .anim.visible {
+            opacity: 1;
+        }
+        
+        /* Фиксированные проценты для всех анимаций */
+        #anim1 {
+            max-width: 30% !important; /* 35% от ширины экрана */
+            margin-top: -8% !important; /* -8% от высоты экрана */
+        }
+        
+        #anim2 {
+            max-width: 35% !important; /* 50% от ширины экрана */
+            margin-top: -14% !important; /* -15% от высоты экрана */
+        }
+        
+        #anim3 {
+            max-width: 20% !important; /* 20% от ширины экрана */
+            margin-top: -8% !important; /* -10% от высоты экрана */
+        }
+        
+        #anim4 {
+            max-width: 20% !important; /* 20% от ширины экрана */
+            margin-top: -8% !important; /* -7% от высоты экрана */
+        }
+        
+        /* Дополнительные настройки для мобильной версии */
+        @media (max-width: 768px) {
+            .top-video {
+                max-width: 140% !important; /* Больше на мобильных */
+                margin-top: 3% !important;
+            }
+            
+            #anim1 {
+                max-width: 110% !important; /* Больше на мобильных */
+                margin-top: -22% !important;
+            }
+            
+            #anim2 {
+                max-width: 110% !important; /* Больше на мобильных */
+                margin-top: -47% !important;
+            }
+            
+            #anim3 {
+                max-width: 80% !important; /* Больше на мобильных */
+                margin-top: -20% !important;
+            }
+            
+            #anim4 {
+                max-width: 80% !important; /* Больше на мобильных */
+                margin-top: -32% !important;
+            }
+        }
+        
+        /* Для очень маленьких экранов */
+        @media (max-width: 480px) {
+            .top-video {
+                max-width: 80% !important; /* Ещё больше на маленьких экранах */
+                margin-top: 4% !important;
+            }
+            
+            #anim1 {
+                max-width: 70% !important;
+                margin-top: -3% !important;
+            }
+            
+            #anim2 {
+                max-width: 80% !important;
+                margin-top: -8% !important;
+            }
+            
+            #anim3 {
+                max-width: 50% !important;
+                margin-top: -4% !important;
+            }
+            
+            #anim4 {
+                max-width: 50% !important;
+                margin-top: -3% !important;
+            }
+        }
+        
+        /* Специально для iPhone и мобильных устройств */
+        @media (max-width: 428px) {
+            .top-video {
+                max-width: 140% !important;
+                margin-top: 5% !important;
+            }
+            
+            #anim1 {
+                max-width: 110% !important;
+                margin-top: -22% !important;
+            }
+            
+            #anim2 {
+                max-width: 110% !important;
+                margin-top: -47% !important;
+            }
+            
+            #anim3 {
+                max-width: 80% !important;
+                margin-top: -20% !important;
+            }
+            
+            #anim4 {
+                max-width: 80% !important;
+                margin-top: -32% !important;
+            }
+        }
+        
+        /* Для очень узких экранов (iPhone SE, маленькие телефоны) */
+        @media (max-width: 375px) {
+            .top-video {
+                max-width: 95% !important;
+                margin-top: 6% !important;
+            }
+            
+            #anim1 {
+                max-width: 85% !important;
+                margin-top: -1% !important;
+            }
+            
+            #anim2 {
+                max-width: 95% !important;
+                margin-top: -5% !important;
+            }
+            
+            #anim3 {
+                max-width: 65% !important;
+                margin-top: -2% !important;
+            }
+            
+            #anim4 {
+                max-width: 65% !important;
+                margin-top: -1% !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Видео фон -->
+    <video class="background-video" autoplay muted loop>
+        <source src="Background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Логотип над анимациями -->
+    <img src="ALL BGC/logo.webp" class="top-video" alt="Logo">
+    
+    <img src="1/BIRD.webp" class="anim" id="anim1" alt="BIRD">
+    <img src="1/BGC.webp" class="anim" id="anim2" alt="BGC">
+    <img src="1/ABOUT.webp" class="anim" id="anim3" alt="ABOUT">
+    <img src="1/CONTACT.webp" class="anim" id="anim4" alt="CONTACT">
+    
+    
+
+    <script>
+        // Конфигурация времени появления для каждой анимации (в миллисекундах)
+        const animationDelays = {
+            anim1: 0,      // BIRD - появляется сразу
+            anim2: 0,      // BGC - появляется одновременно с BIRD
+            anim3: 2000,   // ABOUT - появляется через 2 секунды
+            anim4: 3500    // CONTACT - появляется через 3.5 секунды
+        };
+        
+        // Появление по индивидуальному расписанию
+        const anims = [
+            document.getElementById('anim1'),
+            document.getElementById('anim2'),
+            document.getElementById('anim3'),
+            document.getElementById('anim4')
+        ];
+        
+        function showAnimation(animId, delay) {
+            setTimeout(() => {
+                const element = document.getElementById(animId);
+                if (element) {
+                    element.classList.add('visible');
+                }
+            }, delay);
+        }
+        
+        function startAnimations() {
+            // Показываем BIRD и BGC одновременно
+            showAnimation('anim1', animationDelays.anim1);
+            showAnimation('anim2', animationDelays.anim2);
+            
+            // Показываем ABOUT и CONTACT по индивидуальному расписанию
+            showAnimation('anim3', animationDelays.anim3);
+            showAnimation('anim4', animationDelays.anim4);
+        }
+        
+        window.onload = function() {
+            // Клик по логотипу для запуска анимаций и переключения изображений
+            var topVideo = document.querySelector('.top-video');
+            var animationsStarted = false;
+            var isShowingLogo = true;
+            
+            // Массив скриншотов
+            var screenshots = [
+                'ALL BGC/STOP/STOP Motion00011130.png',
+                'ALL BGC/STOP/STOP Motion00011131.png',
+                'ALL BGC/STOP/STOP Motion00011132.png',
+                'ALL BGC/STOP/STOP Motion00011133.png',
+                'ALL BGC/STOP/STOP Motion00011134.png',
+                'ALL BGC/STOP/STOP Motion00011135.png',
+                'ALL BGC/STOP/STOP Motion00011136.png',
+                'ALL BGC/STOP/STOP Motion00011137.png',
+                'ALL BGC/STOP/STOP Motion00011138.png',
+                'ALL BGC/STOP/STOP Motion00011139.png',
+                'ALL BGC/STOP/STOP Motion00011140.png',
+                'ALL BGC/STOP/STOP Motion00011141.png',
+                'ALL BGC/STOP/STOP Motion00011142.png',
+                'ALL BGC/STOP/STOP Motion00011143.png',
+                'ALL BGC/STOP/STOP Motion00011144.png',
+                'ALL BGC/STOP/STOP Motion00011145.png',
+                'ALL BGC/STOP/STOP Motion00011146.png',
+                'ALL BGC/STOP/STOP Motion00011147.png',
+                'ALL BGC/STOP/STOP Motion00011148.png',
+                'ALL BGC/STOP/STOP Motion00011149.png',
+                'ALL BGC/STOP/STOP Motion00011150.png',
+                'ALL BGC/STOP/STOP Motion00011151.png',
+                'ALL BGC/STOP/STOP Motion00011152.png',
+                'ALL BGC/STOP/STOP Motion00011153.png',
+                'ALL BGC/STOP/STOP Motion00011154.png',
+                'ALL BGC/STOP/STOP Motion00011155.png',
+                'ALL BGC/STOP/STOP Motion00011156.png'
+            ];
+            
+            if (topVideo) {
+                topVideo.addEventListener('click', function() {
+                    // Запуск анимаций только при первом клике
+                    if (!animationsStarted) {
+                        startAnimations();
+                        animationsStarted = true;
+                    }
+                    
+                    // Переключение между логотипом и случайным скриншотом
+                    if (isShowingLogo) {
+                        // Показываем случайный скриншот
+                        var randomScreenshot = screenshots[Math.floor(Math.random() * screenshots.length)];
+                        topVideo.src = randomScreenshot;
+                        isShowingLogo = false;
+                    } else {
+                        // Возвращаемся к логотипу
+                        topVideo.src = 'ALL BGC/logo.webp';
+                        isShowingLogo = true;
+                    }
+                });
+            }
+        };
+    </script>
+</body>
+</html> 

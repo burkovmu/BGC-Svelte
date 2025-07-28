@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анимации из папки 1</title>
+    <style>
+        body {
+            background: #181818;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        /* Видео фон */
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 1.0;
+        }
+        
+        /* Видео над анимациями */
+        .top-video {
+            max-width: 40vw;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .anim {
+            opacity: 0;
+            transition: opacity 1s ease;
+            margin: 40px 0 0 0;
+            max-width: 90vw;
+            background: none;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .anim.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Видео фон -->
+    <video class="background-video" autoplay muted loop>
+        <source src="Background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <!-- Видео над анимациями -->
+    <video class="top-video" autoplay muted loop>
+        <source src="2025-07-22 18.56.24.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <img src="1/BIRD.webp" class="anim" id="anim1" alt="BIRD" style="max-width: 35vw; margin-top: -160px;">
+    <img src="1/BGC.webp" class="anim" id="anim2" alt="BGC" style="max-width: 50vw; margin-top: -360px;">
+    <img src="1/ABOUT.webp" class="anim" id="anim3" alt="ABOUT" style="max-width: 20vw; margin-top: -200px;">
+    <img src="1/CONTACT.webp" class="anim" id="anim4" alt="CONTACT" style="max-width: 20vw; margin-top: -150px;">
+    
+    
+
+    <script>
+        // Конфигурация времени появления для каждой анимации (в миллисекундах)
+        const animationDelays = {
+            anim1: 0,      // BIRD - появляется сразу
+            anim2: 0,      // BGC - появляется одновременно с BIRD
+            anim3: 2000,   // ABOUT - появляется через 2 секунды
+            anim4: 3500    // CONTACT - появляется через 3.5 секунды
+        };
+        
+        // Появление по индивидуальному расписанию
+        const anims = [
+            document.getElementById('anim1'),
+            document.getElementById('anim2'),
+            document.getElementById('anim3'),
+            document.getElementById('anim4')
+        ];
+        
+        function showAnimation(animId, delay) {
+            setTimeout(() => {
+                const element = document.getElementById(animId);
+                if (element) {
+                    element.classList.add('visible');
+                }
+            }, delay);
+        }
+        
+        function startAnimations() {
+            // Показываем BIRD и BGC одновременно
+            showAnimation('anim1', animationDelays.anim1);
+            showAnimation('anim2', animationDelays.anim2);
+            
+            // Показываем ABOUT и CONTACT по индивидуальному расписанию
+            showAnimation('anim3', animationDelays.anim3);
+            showAnimation('anim4', animationDelays.anim4);
+        }
+        
+        window.onload = startAnimations;
+    </script>
+</body>
+</html> 
