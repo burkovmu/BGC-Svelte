@@ -72,6 +72,16 @@
             max-width: 20% !important; /* 20% от ширины экрана */
             margin-top: -8% !important; /* -7% от высоты экрана */
         }
+        
+        /* Контейнер для всех элементов */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 100vh;
+        }
     </style>
 </head>
 <body>
@@ -81,13 +91,16 @@
         Your browser does not support the video tag.
     </video>
     
-    <!-- Логотип над анимациями -->
-    <img src="all-bgc/logo.webp" class="top-video" alt="Logo">
-    
-    <img src="1/BIRD.webp" class="anim" id="anim1" alt="BIRD">
-    <img src="1/BGC.webp" class="anim" id="anim2" alt="BGC">
-    <img src="1/ABOUT.webp" class="anim" id="anim3" alt="ABOUT">
-    <img src="1/CONTACT.webp" class="anim" id="anim4" alt="CONTACT">
+    <!-- Контейнер для всех элементов -->
+    <div class="main-container">
+        <!-- Логотип над анимациями -->
+        <img src="all-bgc/logo.webp" class="top-video" alt="Logo">
+        
+        <img src="1/BIRD.webp" class="anim" id="anim1" alt="BIRD">
+        <img src="1/BGC.webp" class="anim" id="anim2" alt="BGC">
+        <img src="1/ABOUT.webp" class="anim" id="anim3" alt="ABOUT">
+        <img src="1/CONTACT.webp" class="anim" id="anim4" alt="CONTACT">
+    </div>
     
     
 
