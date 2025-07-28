@@ -15,6 +15,7 @@
             justify-content: flex-start;
             position: relative;
             overflow-x: hidden;
+            padding-top: 80px; /* Прозрачный отступ сверху */
         }
         
         /* Видео фон */
@@ -81,21 +82,28 @@
             align-items: center;
             justify-content: flex-start;
             width: 100%;
-            height: 100vh;
+            height: calc(100vh - 80px); /* Высота минус отступ */
+            margin-top: 0; /* Контент начинается сразу после отступа */
         }
         
         /* Мобильная версия - увеличенный контейнер */
         @media (max-width: 768px) {
+            body {
+                padding-top: 120px !important; /* Больше отступ для мобильных */
+            }
+            
             .main-container {
                 width: 100vw !important; /* Фиксированная ширина экрана */
                 max-width: 100vw !important; /* Ограничиваем ширину экрана */
                 transform: scale(3) !important; /* Дополнительное увеличение */
-                margin-top: 150% !important; /* Опускаем блок ниже */
+                margin-top: 0 !important; /* Контент начинается сразу после отступа */
                 overflow: hidden !important; /* Скрываем выходящие за границы элементы */
                 position: fixed !important; /* Фиксированная позиция */
                 left: 0 !important; /* Прижимаем к левому краю */
                 right: 0 !important; /* Прижимаем к правому краю */
                 will-change: transform; /* Оптимизация для трансформаций */
+                height: calc(100vh - 120px) !important; /* Высота минус мобильный отступ */
+                top: 120px !important; /* Позиция под отступом */
             }
             
             /* Оптимизация анимаций для мобильных */
