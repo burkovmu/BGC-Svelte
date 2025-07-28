@@ -86,10 +86,16 @@
         /* Мобильная версия - увеличенный контейнер */
         @media (max-width: 768px) {
             .main-container {
-                width: 120% !important; /* Увеличиваем контейнер на мобильных */
-                max-width: 120% !important;
+                width: 100% !important; /* Возвращаем к 100% */
+                max-width: 100% !important; /* Ограничиваем ширину */
                 transform: scale(2.5) !important; /* Дополнительное увеличение */
                 margin-top: 150% !important; /* Опускаем блок ниже */
+                overflow: hidden !important; /* Скрываем выходящие за границы элементы */
+            }
+            
+            /* Скрываем горизонтальную прокрутку */
+            body {
+                overflow-x: hidden !important;
             }
         }
     </style>
