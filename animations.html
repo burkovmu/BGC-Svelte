@@ -51,10 +51,6 @@
             backface-visibility: hidden; /* Улучшение производительности */
         }
         
-        /* Простая оптимизация качества изображений */
-        img {
-            image-rendering: -webkit-optimize-contrast;
-        }
         .anim.visible {
             opacity: 1;
         }
@@ -114,10 +110,8 @@
             
             /* Оптимизация анимаций для мобильных */
             .anim {
-                will-change: opacity, transform !important;
-                transform: translateZ(0) scale(1) !important; /* Аппаратное ускорение */
-                backface-visibility: hidden !important;
-                perspective: 1000px !important;
+                will-change: opacity !important;
+                transform: translateZ(0) !important; /* Только аппаратное ускорение */
             }
             
             /* Скрываем горизонтальную прокрутку */
